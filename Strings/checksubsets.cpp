@@ -11,7 +11,7 @@ bool checksubsets(string s1, string s2)
             j++;
         }
         else
-            j++;
+            j++;ss
     }
     if (i < s1.length())
         return false;

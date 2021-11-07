@@ -11,9 +11,9 @@ string uniquesubsets(string s)
         if (m.count(ch) and m[ch] >= i)
         {
             i = m[ch] + 1;
-            len = j - 1;
+            len = j - i;
         }
-        m.insert({ch, j});
+        m[ch] = j;
         len++;
         j++;
         if (len > max)
@@ -22,7 +22,7 @@ string uniquesubsets(string s)
             start = i;
         }
     }
-    return s.substr(start, len);
+    return s.substr(start, max);
 }
 int main()
 {

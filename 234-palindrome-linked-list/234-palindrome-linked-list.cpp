@@ -12,11 +12,10 @@ class Solution {
 public:
     void helper(ListNode *head, vector<int> &sol)
     {
-        while(head!=NULL)
-        {
-            sol.push_back(head->val);
-            head=head->next;
-        }
+        if(!head)
+            return ;
+        sol.push_back(head->val);
+        helper(head->next,sol);
     }
     bool isPalindrome(ListNode* head) {
         vector<int> sol;

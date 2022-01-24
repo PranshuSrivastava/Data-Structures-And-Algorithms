@@ -1,38 +1,17 @@
 class Solution {
 public:
     bool detectCapitalUse(string word) {
-        if(islower(word[0]))
+        int cnt=0,pos;
+        for(int i=0;i<word.length();i++)
         {
-            for(int i=1;i<word.length();i++)
+            if(isupper(word[i]))
             {
-                if(isupper(word[i]))
-                    return false;
+                cnt++;
+                pos=i;
             }
+        }
+        if(!cnt || cnt==word.length() || pos==0)
             return true;
-                
-        }
-        if(isupper(word[0]))
-        {
-            int flag=isupper(word[1])?1:0;
-            if(flag)
-            {
-                for(int i=2;i<word.length();i++)
-                {
-                    if(islower(word[i]))
-                        return false;
-                }
-                return true;
-            }
-            else
-            {
-                for(int i=2;i<word.length();i++)
-                {
-                    if(isupper(word[i]))
-                        return false;
-                }
-                return true;
-            }
-        }
         return false;
         
     }

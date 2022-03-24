@@ -5,13 +5,17 @@
 #define no cout<<"NO"<<'\n';
 #define vi vector<int>
 #define mi unordered_map<int,int>
+#define nline cout<<'\n';
+#define sz(x) (int)x.size()
+#define lt(x) (int)x.length()
 
 using namespace std;
 
-void solve() {
-    int n;
-    cin >> n;
-    cout << n << "This is your number";
+void solve(){
+    int n,x;
+    cin>>n>>x;
+    int total = n*2;
+    cout<<total-x+1;nline;
 }
 
 int main()
@@ -24,9 +28,9 @@ int main()
     ios_base::sync_with_stdio(NULL);
     cin.tie(NULL);
     int t;
-    cin >> t;
-    while (t--) {
-        solve();
+    cin>>t;
+    while(t--){
+    solve();
     }
     return 0;
 }

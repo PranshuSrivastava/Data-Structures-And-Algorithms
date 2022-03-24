@@ -23,22 +23,19 @@ public:
     {
         int count = 0;
         mi m;
-            cout<<"ok";nline;
-            cout<<"ok";nline;
-            cout<<"ok";nline;
-            cout<<"ok";nline;
         for (int i : people)
         {
-            cout<<"ok";nline;
-            m[people[i]]++;
+            m[i]++;
         }
         for (int i : people)
         {
-            if(m[limit-people[i]]){
-                m[limit - people[i]]--;
+            if(m[limit-i]){
+                m[limit-i]--;
             }
-            m[people[i]]--;
+            if(m[i])
             count++;
+    
+            m[i]--;
         }
         return count;
     }

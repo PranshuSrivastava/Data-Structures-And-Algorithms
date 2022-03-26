@@ -21,17 +21,23 @@ class Solution
 public:
     int search(vector<int> &nums, int target)
     {
+        auto start = chrono ::high_resolution_clock::now();
         int ub = sz(nums) - 1, lb = 0, mid;
         while (lb <= ub)
         {
             mid = (lb + ub) / 2;
-            if(nums[mid] == target)
-            return mid;
-            else if(nums[mid]<target)
-            lb=mid+1;
+            if (nums[mid] == target)
+                return mid;
+            else if (nums[mid] < target)
+                lb = mid + 1;
             else
-            ub=mid-1;
+                ub = mid - 1;
         }
+        auto end = chrono ::high_resolution_clock::now();
+        cout<<"ok";
+        double time_taken =
+            chrono::duration_cast<chrono::nanoseconds>(end - start).count();
+            cout<<"time taken is:"<<time_taken;
         return -1;
     }
 };

@@ -25,6 +25,7 @@ void solve() {
 	int y = -1;
 	int x = s - y;
 	cout << x*y;
+	cout << "ok";
 	nline;
 }
 

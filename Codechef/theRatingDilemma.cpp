@@ -1,3 +1,4 @@
+
 #include <bits/stdc++.h>
 #define ll long long int
 #define pb pop_back
@@ -20,9 +21,11 @@ using namespace std;
 
 void solve() {
 	int s;
+	cin >> s;
 	int y = -1;
 	int x = s - y;
-	cout << x*y; nline;
+	cout << x*y;
+	nline;
 }
 
 int main()

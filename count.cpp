@@ -33,7 +33,7 @@ void solve() {
 
 int main()
 {
-#ifdef LOCAL_PROJECT
+#ifndef ONLINE_JUDGE
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
 #endif
@@ -48,20 +48,4 @@ int main()
         newline
     }
     return 0;
-    for (size_t i = 0; i < count; i++)
-    {
-    /* code */
-    },
-    "Taking a vector as input": {
-  "prefix": "input",
-  "body": [
-    "int n;",
-    "cin>>n;",
-    "vector<int> arr(n);",
-    "for(int i = 0; i<n ;i++)",
-    "	cin>>a[i];"
-  ],
-  "description": "Taking a vector as input"
-}
-
 }

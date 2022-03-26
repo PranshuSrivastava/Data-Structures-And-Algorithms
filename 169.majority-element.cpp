@@ -29,7 +29,15 @@ using namespace std;
 class Solution {
 public:
     int majorityElement(vector<int>& nums) {
-        
+        //Boyer-Moore Majority Algorithm
+        int check = 0,majority;
+        for(int i : nums){
+            if(!check)
+            majority = i;
+            check+=majority==i?1:-1;
+
+        }
+        return majority;
     }
 };
 // @lc code=end

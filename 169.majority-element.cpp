@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=136 lang=cpp
+ * @lc app=leetcode id=169 lang=cpp
  *
- * [136] Single Number
+ * [169] Majority Element
  */
 
 // @lc code=start
@@ -28,12 +28,8 @@
 using namespace std;
 class Solution {
 public:
-    int singleNumber(vector<int>& nums) {
-        int ans = 0;
-        for(int i : nums){
-         ans^=i;
-        }
-        return ans;
+    int majorityElement(vector<int>& nums) {
+        
     }
 };
 // @lc code=end

@@ -36,8 +36,9 @@ void solve() {
 		if (s[i] == 0)
 		{
 			while (s[i] == 0)
-				count++;
-			i++;
+			{
+				count++; i++;
+			}
 		}
 	}
 	cout << count; nline;

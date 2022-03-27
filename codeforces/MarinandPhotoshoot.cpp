@@ -28,7 +28,7 @@ typedef std :: vector<vl>      vvl;
 using namespace std;
 
 void solve() {
-	int n, count;
+	int n, count = 0;
 	string s;
 	cin >> n >> s;
 	for (int i = 0; i < lt(s); i += 2)

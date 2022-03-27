@@ -34,24 +34,18 @@ using namespace std;
 class Solution {
 public:
     vector<int> kWeakestRows(vector<vector<int>>& mat, int k) {
-        mi m;
-        cout<<"ok";
-        cout<<sz(mat);
-        for (size_t i = 0; i < sz(mat); i++)
-        {
-            for(int j = 0; j<sz(mat[i]);j++){
-                if(mat[i][j])
-                m[i]++;
-            }
+        set<pii> s;
+        for(int i =0; i<sz(mat); ++i){
+            int cnt = count(all(mat[i]),1);
+            s.insert({cnt,i});
         }
-        sort(all(m));
         vi ans;
-            for(auto i : m){
-                if(k)
-                ans.pb(i.F);
-
-            }
-
+        for(auto i : s){
+            if(!k)
+            break;
+            ans.pb(i.S);
+            k--;
+        }
         return ans;
 
     }

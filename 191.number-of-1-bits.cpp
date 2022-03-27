@@ -5,17 +5,18 @@
  */
 
 // @lc code=start
-class Solution {
+class Solution
+{
 public:
-    int hammingWeight(uint32_t n) {
+    int hammingWeight(uint32_t n)
+    {
         int count = 0;
-        while(n){
-            if(n&1)
+        while (n)
+        {
+            n &= n - 1;
             count++;
-            n/=2;
         }
         return count;
     }
 };
 // @lc code=end
-

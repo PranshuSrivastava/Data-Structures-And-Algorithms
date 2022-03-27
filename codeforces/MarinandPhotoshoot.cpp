@@ -31,7 +31,7 @@ void solve() {
 	int n, count = 0;
 	string s;
 	cin >> n >> s;
-	for (int i = 0; i < lt(s); i += 2)
+	for (int i = 0; i < lt(s); ++i)
 	{
 		if (s[i] == 0)
 		{

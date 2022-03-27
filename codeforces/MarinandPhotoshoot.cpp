@@ -31,15 +31,10 @@ void solve() {
 	int n, count = 0;
 	string s;
 	cin >> n >> s;
-	for (int i = 0; i < lt(s); ++i)
+	for (int i = 1; i < lt(s); ++i)
 	{
-		if (s[i] == 0)
-		{
-			while (s[i] == 0)
-			{
-				count++; i++;
-			}
-		}
+		if (s[i] == '0' and s[i - 1] == '0')
+			count += 2;
 	}
 	cout << count; nline;
 

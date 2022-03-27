@@ -28,11 +28,15 @@ typedef std :: vector<vl>      vvl;
 using namespace std;
 
 void solve() {
-	int n;
+	int n, count;
 	string s;
 	cin >> n >> s;
-	int cnt1 = count(all(s), '1');
-	cout << cnt1 << '\n';
+	for (int i = 0; i < lt(s) - 1; ++i)
+	{
+		if (s[i] == 0 and s[i] == s[i + 1])
+			count++;
+	}
+	cout << count; nline;
 
 }
 

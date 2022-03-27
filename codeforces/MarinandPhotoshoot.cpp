@@ -31,10 +31,13 @@ void solve() {
 	int n, count;
 	string s;
 	cin >> n >> s;
-	for (int i = 0; i < lt(s) - 1; ++i)
+	for (int i = 0; i < lt(s); i += 2)
 	{
-		if (s[i] == 0 and s[i] == s[i + 1])
-			count++;
+		if (s[i] == 0)
+		{
+			while (s[i] == 0)
+				++i;
+		}
 	}
 	cout << count; nline;
 

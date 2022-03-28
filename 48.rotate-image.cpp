@@ -1,0 +1,53 @@
+/*
+ * @lc app=leetcode id=48 lang=cpp
+ *
+ * [48] Rotate Image
+ */
+
+// @lc code=start
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define yes cout << "YES" << '\n';
+#define no cout << "NO" << '\n';
+#define deb(x) cout << #x << "=" << x << endl
+#define all(x) x.begin(), x.end()
+#define nline cout << '\n';
+#define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
+#define sz(x) (int)x.size()
+#define lt(x) (int)x.length()
+#define F first
+#define S second
+typedef unordered_map<int, int> mi;
+typedef vector<string> vs;
+typedef vector<vs> vvs;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pl;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pii> vpii;
+typedef vector<pl> vpl;
+typedef vector<vi> vvi;
+typedef vector<vl> vvl;
+#define mod 1e9 + 7
+using namespace std;
+class Solution
+{
+public:
+    void rotate(vector<vector<int>> &matrix)
+    {
+        for (int i = 0; i < sz(matrix); ++i)
+        {
+            for (int j = i; j < sz(matrix[0]); ++j)
+            {
+                swap(matrix[i][j], matrix[j][i]);
+            }
+        }
+        for (int i = 0; i < sz(matrix); ++i)
+        {
+            reverse(all(matrix[i])
+            );
+        }
+    }
+};
+// @lc code=end

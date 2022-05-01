@@ -26,8 +26,8 @@ typedef vector<vl>      vvl;
 using namespace std;
 class Solution {
 public:
-    bool backspaceCompare(string s, string t) {
-        string a = "",b = "";
+    string check(string s){
+        string a;
         for (size_t i = 0; i < lt(s); ++i)
         {
             if(isalpha(s[i]))
@@ -39,17 +39,11 @@ public:
             }
             
         }
-        for (size_t i = 0; i < lt(t); ++i)
-        {
-            if(isalpha(t[i]))
-            b+=t[i];
-            else{
-                if(lt(b)>0)
-                    b.pop_back();
-            }
-            
-        }
-        return a==b?1:0;
+        return a;
+    }
+    bool backspaceCompare(string s, string t){
+        
+        return check(s)==check(t)?1:0;
 
     }
 };

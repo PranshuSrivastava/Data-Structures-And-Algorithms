@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=17 lang=cpp
+ * @lc app=leetcode id=1209 lang=cpp
  *
- * [17] Letter Combinations of a Phone Number
+ * [1209] Remove All Adjacent Duplicates in String II
  */
 
 // @lc code=start
@@ -33,28 +33,33 @@ typedef vector<vl>      vvl;
 using namespace std;
 class Solution {
 public:
-    vector<string> letterCombinations(string digits) {
-        vs ans;
-        if(!digits.size())
-        return ans;
-        vs m{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-        string path = "";
-        dfs(digits, 0, path, ans, m);
-        return ans;
-
-    }
-    void dfs(string digits, int pos, string path,vs& ans, vs m){
-
-        if(pos == sz(digits)){
-            ans.push_back(path);
-            return;
+    string removeDuplicates(string s, int k) {
+        stack< pair<char, int>> st;
+        for (size_t i = 0; i < lt(s); ++i)
+        {
+            if(st.empty() or (st.top().F != s[i]))
+            st.push({s[i],1});
+            else{
+                auto prev = st.top();
+                st.pop();
+                st.push({s[i],prev.S+1});
+            }
+            if(st.top().S == k)
+            st.pop();
         }
-
-        for(auto c: m[digits[pos]-'0']){
-            path.push_back(c);
-            dfs(digits,pos+1,path,ans,m);
-            path.pop_back();
+        string ans = "";
+        cout<<st.empty();
+        while(!st.empty()){
+            auto curr = st.top();
+            st.pop();
+            while(curr.S--){
+                ans.pb(curr.F);
+            }
         }
+        if(!ans.empty())
+        reverse(all(ans));
+        return ans;
+
 
     }
 };

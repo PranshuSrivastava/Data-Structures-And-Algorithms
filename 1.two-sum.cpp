@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=17 lang=cpp
+ * @lc app=leetcode id=1 lang=cpp
  *
- * [17] Letter Combinations of a Phone Number
+ * [1] Two Sum
  */
 
 // @lc code=start
@@ -33,28 +33,20 @@ typedef vector<vl>      vvl;
 using namespace std;
 class Solution {
 public:
-    vector<string> letterCombinations(string digits) {
-        vs ans;
-        if(!digits.size())
-        return ans;
-        vs m{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-        string path = "";
-        dfs(digits, 0, path, ans, m);
-        return ans;
-
-    }
-    void dfs(string digits, int pos, string path,vs& ans, vs m){
-
-        if(pos == sz(digits)){
-            ans.push_back(path);
-            return;
+    vector<int> twoSum(vector<int>& nums, int target) {
+        mi m;
+        vi ans;
+        for (size_t i = 0; i < sz(nums); ++i)
+        {
+            if(m.find(target - nums[i]) != m.end())
+            {
+                ans.pb(i);
+                ans.pb(m[target - nums[i]]);
+            }
+            m[nums[i]] = i;
         }
-
-        for(auto c: m[digits[pos]-'0']){
-            path.push_back(c);
-            dfs(digits,pos+1,path,ans,m);
-            path.pop_back();
-        }
+        sort(all(ans));
+        return ans;
 
     }
 };

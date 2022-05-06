@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=17 lang=cpp
+ * @lc app=leetcode id=5 lang=cpp
  *
- * [17] Letter Combinations of a Phone Number
+ * [5] Longest Palindromic Substring
  */
 
 // @lc code=start
@@ -33,28 +33,21 @@ typedef vector<vl>      vvl;
 using namespace std;
 class Solution {
 public:
-    vector<string> letterCombinations(string digits) {
-        vs ans;
-        if(!digits.size())
-        return ans;
-        vs m{"","","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
-        string path = "";
-        dfs(digits, 0, path, ans, m);
-        return ans;
-
-    }
-    void dfs(string digits, int pos, string path,vs& ans, vs m){
-
-        if(pos == sz(digits)){
-            ans.push_back(path);
-            return;
+    string longestPalindrome(string s) {
+        string ans ;
+        int maxi = 0;
+        for (size_t i = 0; i < lt(s); ++i)
+        {
+            int l = i, r = i;
+            while(l>=0 and r<lt(s) and s[l] == s[r]){
+                if(l-r+1 > maxi){
+                    maxi = l-r+1;
+                    ans = s.substr(l,r);
+                }
+                --l;++r;
+            }
         }
-
-        for(auto c: m[digits[pos]-'0']){
-            path.push_back(c);
-            dfs(digits,pos+1,path,ans,m);
-            path.pop_back();
-        }
+        return ans;
 
     }
 };

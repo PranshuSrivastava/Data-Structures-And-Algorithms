@@ -34,15 +34,25 @@ using namespace std;
 class Solution {
 public:
     string longestPalindrome(string s) {
-        string ans ;
+        string ans = "" ;
         int maxi = 0;
         for (size_t i = 0; i < lt(s); ++i)
         {
             int l = i, r = i;
             while(l>=0 and r<lt(s) and s[l] == s[r]){
-                if(l-r+1 > maxi){
-                    maxi = l-r+1;
-                    ans = s.substr(l,r);
+                cout<<l<<r;nline;
+                if((r -l+1 )> maxi){
+                    maxi = r-l+1;
+                    ans = s.substr(l,r+1);
+                }
+                --l;++r;
+            }
+            int l = i, r = i+1;
+            while(l>=0 and r<lt(s) and s[l] == s[r]){
+                cout<<l<<r;nline;
+                if((r -l+1 )> maxi){
+                    maxi = r-l+1;
+                    ans = s.substr(l,r+1);
                 }
                 --l;++r;
             }

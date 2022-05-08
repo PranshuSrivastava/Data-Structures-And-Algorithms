@@ -52,7 +52,7 @@ public:
     {
         vi freq;
         helper(root);
-        int maxn, frequency = 0;
+        int frequency = 0;
         for(auto x: maxi){
             if(x.second>=frequency)
             {

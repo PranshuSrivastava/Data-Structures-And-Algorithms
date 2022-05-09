@@ -67,7 +67,7 @@
       "program": "/home/pranshu/Data-Structures-And-Algorithms/build/Debug/outDebug",
       "internalConsoleOptions": "openOnSessionStart",
       "MIMode": "gdb",
-      "miDebuggerPath": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
       "console": "integratedTerminal",
       "setupCommands": [
         {

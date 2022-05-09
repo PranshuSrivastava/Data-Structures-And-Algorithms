@@ -1,11 +1,5 @@
-/*
- * @lc app=leetcode id=17 lang=cpp
- *
- * [17] Letter Combinations of a Phone Number
- */
-
-// @lc code=start
 #include <bits/stdc++.h>
+using namespace std;
 #define ll long long int
 #define pb push_back
 #define yes cout << "YES" << '\n';
@@ -30,31 +24,44 @@ typedef vector<pl> vpl;
 typedef vector<vi> vvi;
 typedef vector<vl> vvl;
 #define mod 1e9 + 7
-using namespace std;
-class Solution
+void solve()
 {
-public:
-    vector<string> letterCombinations(string digits)
+    int n;
+    cin >> n;
+    vi boys(n), girls(n);
+    for (size_t i = 0; i < n; i++)
     {
-        vs m{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        string path = "";
-        vs res;
-        dfs(digits, 0, path, m, res);
-        return res;
+        cin >> boys[i];
     }
-    void dfs(string digits, int idx, string path, vs &m, vs &res)
+    for (int i = 0; i < n; ++i)
     {
-        if (idx == sz(digits))
-        {
-            res.pb(path);
-            return;
-        }
-        for (int c : m[digits[idx] - '0'])
-        {
-            path.pb(c);
-            dfs(digits, idx + 1, path, m, res);
-            path.pop_back();
-        }
+        cin >> girls[i];
     }
-};
-// @lc code=end
+    int maxi = -1;
+    sort(all(boys));
+    sort(all(girls), greater<int>());
+    for (size_t i = 0; i < n; i++)
+    {
+        maxi = max(maxi,boys[i] + girls[i]);
+    }
+    cout << maxi;
+    nline;
+}
+
+int main()
+{
+#ifndef ONLINE_JUDGE
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
+#endif
+
+    ios_base::sync_with_stdio(NULL);
+    cin.tie(NULL);
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        solve();
+    }
+    return 0;
+}

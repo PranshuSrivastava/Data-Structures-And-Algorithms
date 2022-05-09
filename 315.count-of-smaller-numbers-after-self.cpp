@@ -1,7 +1,7 @@
 /*
- * @lc app=leetcode id=17 lang=cpp
+ * @lc app=leetcode id=315 lang=cpp
  *
- * [17] Letter Combinations of a Phone Number
+ * [315] Count of Smaller Numbers After Self
  */
 
 // @lc code=start
@@ -34,27 +34,18 @@ using namespace std;
 class Solution
 {
 public:
-    vector<string> letterCombinations(string digits)
+    vector<int> countSmaller(vector<int> &nums)
     {
-        vs m{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        string path = "";
-        vs res;
-        dfs(digits, 0, path, m, res);
-        return res;
-    }
-    void dfs(string digits, int idx, string path, vs &m, vs &res)
-    {
-        if (idx == sz(digits))
+        vi smaller(sz(nums));
+        cout << smaller[sz(nums) - 2];
+        for (size_t i = sz(nums) - 2; i >= 0; --i)
         {
-            res.pb(path);
-            return;
+            if (nums[i] > nums[i + 1])
+                smaller[i] = smaller[i + 1] + 1;
+            else
+                smaller[i] = smaller[i + 1];
         }
-        for (int c : m[digits[idx] - '0'])
-        {
-            path.pb(c);
-            dfs(digits, idx + 1, path, m, res);
-            path.pop_back();
-        }
+        return smaller;
     }
 };
 // @lc code=end

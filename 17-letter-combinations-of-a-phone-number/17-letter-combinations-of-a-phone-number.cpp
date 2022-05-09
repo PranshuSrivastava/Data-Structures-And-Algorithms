@@ -1,38 +1,54 @@
-class Solution {
+#include <bits/stdc++.h>
+#define ll long long int
+#define pb push_back
+#define yes cout << "YES" << '\n';
+#define no cout << "NO" << '\n';
+#define deb(x) cout << #x << "=" << x << endl
+#define all(x) x.begin(), x.end()
+#define nline cout << '\n';
+#define deb2(x, y) cout << #x << "=" << x << "," << #y << "=" << y << endl
+#define sz(x) (int)x.size()
+#define lt(x) (int)x.length()
+#define F first
+#define S second
+typedef unordered_map<int, int> mi;
+typedef vector<string> vs;
+typedef vector<vs> vvs;
+typedef pair<int, int> pii;
+typedef pair<ll, ll> pl;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<pii> vpii;
+typedef vector<pl> vpl;
+typedef vector<vi> vvi;
+typedef vector<vl> vvl;
+#define mod 1e9 + 7
+using namespace std;
+class Solution
+{
 public:
-    vector<string> letterCombinations(string digits) {
-        vector<string> ans;
-        if(!digits.size())
-            return ans;
-        vector<string> m{
-            "",
-            "",
-            "abc",
-            "def",
-            "ghi",
-            "jkl",
-            "mno",
-            "pqrs",
-            "tuv",
-            "wxyz"
-        };
+    vector<string> letterCombinations(string digits)
+    {
+        vs m{"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
         string path = "";
-        dfs(digits,path,0,ans,m);
-        return ans;
-        
+        vs res;
+        if(!sz(digits))
+            return res;
+        dfs(digits, 0, path, m, res);
+        return res;
     }
-    void dfs(string digits, string path, int idx, vector<string>& ans, vector<string> m){
-        
-        if(idx == digits.size()){
-            ans.push_back(path);
+    void dfs(string digits, int idx, string path, vs &m, vs &res)
+    {
+        if (idx == sz(digits))
+        {
+            res.pb(path);
             return;
         }
-        
-        for(auto c : m[digits[idx] - '0'] ){
-            path.push_back(c);
-            dfs(digits, path, idx+1, ans, m);
+        for (int c : m[digits[idx] - '0'])
+        {
+            path.pb(c);
+            dfs(digits, idx + 1, path, m, res);
             path.pop_back();
         }
-        
     }
 };

@@ -37,7 +37,7 @@ void solve()
     {
         cin >> b[i];
     }
-    for (size_t i = 0; i < sz(a); ++i)
+    for (size_t i = 0; i < szs(a); ++i)
     {
         vi::iterator it = find(all(b), a[i]);
         if((it!=b.end()) and (a[it - a.begin()] == b[i]) and (i!=it-a.begin()))

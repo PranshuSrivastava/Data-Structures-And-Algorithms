@@ -34,7 +34,14 @@ using namespace std;
 class Solution {
 public:
     char nextGreatestLetter(vector<char>& letters, char target) {
-        
+        sort(all(letters));
+        for(char c: letters){
+            if(c-'a' >= target-'a')
+            return c;
+            else if(target=='z' and c=='a')
+            return c;
+        }
+        return target;
     }
 };
 // @lc code=end

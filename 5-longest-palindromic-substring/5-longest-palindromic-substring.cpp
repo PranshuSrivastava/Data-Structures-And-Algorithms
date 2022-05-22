@@ -32,23 +32,20 @@ public:
         for (size_t i = 0; i < lt(s); ++i)
         {
             int l = i, r = i;
-            while(l>=0 and r<lt(s) and s[l] == s[r]){
+            check(l, r, maxi, ans, s);
+            l = i, r = i+1;
+            check(l, r, maxi, ans, s);
+        }
+        return ans;
+
+    }
+    void check(int l, int r, int& maxi, string& ans, string s){
+             while(l>=0 and r<lt(s) and s[l] == s[r]){
                 if((r -l+1 )> maxi){
                     maxi = r-l+1;
                     ans = s.substr(l,r-l+1);
                 }
                 --l;++r;
-            }
-            l = i, r = i+1;
-            while(l>=0 and r<lt(s) and s[l] == s[r]){
-                if((r -l+1 )> maxi){
-                    maxi = r-l+1;
-                    ans = s.substr(l, r-l+1);
-                }
-                --l;++r;
-            }
-        }
-        return ans;
-
+            }       
     }
 };

@@ -9,7 +9,6 @@ public:
                 right++;
             if(left==right)
                 maxlen=max(maxlen,2*left);
-		//when we traverse from left to right ,if right becomes more than left then we enter into invalid state
             else if(right>=left){
                 left=0;
                 right=0;
@@ -23,8 +22,7 @@ public:
                 right++;
             if(left==right)
                 maxlen=max(maxlen,2*right);
-		//when we traverse from right to left ,if left becomes more than right we enter into inavild state
-            else if(left>=right){
+	  else if(left>=right){
                 left=0;
                 right=0;
             }

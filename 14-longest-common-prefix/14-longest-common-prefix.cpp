@@ -1,11 +1,7 @@
 class Solution {
 public:
-    static bool helper(string a, string b){
-        return a.size() < b.size();
-}
     string longestCommonPrefix(vector<string>& strs) {
         string ans = "";
-        sort(strs.begin(), strs.end(), helper);
         int n = strs[0].size();
         for(int i = 0; i < n; ++i){
             char check = strs[0][i];

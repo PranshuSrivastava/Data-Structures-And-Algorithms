@@ -1,4 +1,12 @@
 # Write your MySQL query statement below
-select max(salary) as SecondHighestSalary
-from employee
-where salary < (select max(salary) from employee limit 1)
+with cte as
+(
+    select salary, dense_rank() 
+    over (order by salary desc)
+    as denserank
+    from employee
+    limit 100
+)
+select (case when count(*) >= 1 then salary else NULL end) as SecondHighestSalary
+from cte 
+where denserank = 2;

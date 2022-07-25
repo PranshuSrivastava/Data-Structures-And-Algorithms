@@ -14,15 +14,9 @@ public:
     TreeNode* invertTree(TreeNode* root) {
        if(!root)
        return NULL;
-       dfs(root);
-       return root;
-    }
-    void dfs(TreeNode* root){
-        if(!root)
-        return;
-        dfs(root->left);
-        dfs(root->right);
+        invertTree(root->left);
+        invertTree(root->right);
         swap(root->left, root->right);
-
+        return root;
     }
 };
